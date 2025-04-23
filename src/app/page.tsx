@@ -21,11 +21,7 @@ export default function Home() {
     newBoard[y][x] = turnColor;
 
     setBoard(newBoard);
-    if (turnColor === 1) {
-      setTurnColor(2);
-    } else {
-      setTurnColor(1);
-    }
+    setTurnColor(turnColor === 1 ? 2 : 1);
   };
 
   return (
