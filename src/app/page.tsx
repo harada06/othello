@@ -5,21 +5,32 @@ import styles from './page.module.css';
 
 export default function Home() {
   const [board, setBoard] = useState([
-    [1, 2, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 1, 2, 0, 0, 0],
+    [0, 0, 0, 2, 1, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0],
+    //1=>黒,2=>白
   ]);
   const [turnColor, setTurnColor] = useState(1);
   const clickHandler = (x: number, y: number) => {
     console.log(x, y);
+    if (board[y][x] !== 0) return;
+    const direction = [
+      [-1, 1],
+      [0, 1],
+      [1, 1],
+      [-1, 0],
+      [1, 0],
+      [-1, -1],
+      [0, -1],
+      [1, -1],
+    ];
     const newBoard = structuredClone(board);
     newBoard[y][x] = turnColor;
-
     setBoard(newBoard);
     setTurnColor(turnColor === 1 ? 2 : 1);
   };
