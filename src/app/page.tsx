@@ -10,24 +10,28 @@ export default function Home() {
     [0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 1],
-    [0, 0, 0, 0, 1, 2, 1, 1],
-    [0, 0, 0, 0, 2, 1, 1, 1],
+    [2, 0, 0, 0, 0, 0, 0, 1],
+    [2, 0, 0, 0, 1, 2, 1, 1],
+    [1, 0, 0, 0, 2, 1, 1, 1],
     //1=>黒,2=>白
   ]);
   const [turnColor, setTurnColor] = useState(1);
   const newBoard = structuredClone(board);
   const clickHandler = (x: number, y: number) => {
+    if (board[y][x] !== 0) return;
+
     let number = 1;
     while (number < 8) {
+      number += 1;
       if (board[y + number] !== undefined && board[y + number][x] === 3 - turnColor) {
         newBoard[y][x] = turnColor;
         newBoard[y + number][x] = turnColor;
         setTurnColor(3 - turnColor);
+      } else {
+        if (board[y + number] !== undefined && board[y + number][x] === turnColor) {
+          break;
+        }
       }
-      number++;
-
-      setBoard(newBoard);
     }
   };
 
