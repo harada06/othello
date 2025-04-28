@@ -24,13 +24,17 @@ export default function Home() {
     while (number < 8) {
       number += 1;
       if (board[y + number] !== undefined && board[y + number][x] === 3 - turnColor) {
-        newBoard[y][x] = turnColor;
-        newBoard[y + number][x] = turnColor;
-        setTurnColor(3 - turnColor);
-      } else {
-        if (board[y + number] !== undefined && board[y + number][x] === turnColor) {
-          break;
-        }
+        continue;
+      } //一つ下の石が異なる色なら次の条件式に飛ぶ
+      if (board[y + number] !== undefined && board[y + number][x] === turnColor) {
+        for (let i = 1; i < number; i++) newBoard[y + i][x] = turnColor;
+      }
+      newBoard[y][x] = turnColor;
+      setBoard(newBoard);
+      setTurnColor(3 - turnColor);
+
+      else{
+        break;
       }
     }
   };
