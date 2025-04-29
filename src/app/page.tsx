@@ -5,10 +5,10 @@ import styles from './page.module.css';
 
 export default function Home() {
   const [board, setBoard] = useState([
-    [0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 1, 2, 0, 0, 0, 0, 0],
-    [0, 2, 1, 0, 0, 0, 0, 0],
-    [0, 0, 0, 1, 2, 0, 0, 0],
+    [0, 2, 2, 1, 0, 0, 0, 0],
+    [0, 2, 2, 0, 0, 0, 2, 0],
+    [0, 2, 2, 0, 0, 2, 1, 0],
+    [0, 0, 0, 1, 1, 1, 2, 0],
     [0, 0, 0, 2, 1, 0, 0, 0],
     [0, 1, 2, 0, 0, 0, 0, 0],
     [0, 2, 1, 0, 0, 0, 0, 0],
@@ -21,8 +21,14 @@ export default function Home() {
     const newBoard = structuredClone(board);
 
     //↓↓↓
+
+    //もしひとつ上のマスがなかったら
+    if (board[y - 1] === undefined) {
+    }
+
     /*上 */
     //二個上が自分と同じ色
+
     if (
       board[y - 1] !== undefined &&
       board[y - 1][x] === 3 - turnColor &&
@@ -694,9 +700,15 @@ export default function Home() {
 
     //左斜め下三個が自分と同じ色
     if (
+      y + 1 < board.length &&
+      x - 1 >= 0 &&
+      y + 2 < board.length &&
+      x - 2 >= 0 &&
       board[y + 1][x - 1] !== undefined &&
       board[y + 1][x - 1] === 3 - turnColor &&
       board[y + 2][x - 2] === 3 - turnColor &&
+      y + 3 < board.length &&
+      x - 3 >= 0 &&
       board[y + 3][x - 3] === turnColor
     ) {
       newBoard[y][x] = turnColor;
