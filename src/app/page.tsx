@@ -20,25 +20,18 @@ export default function Home() {
   const clickHandler = (x: number, y: number) => {
     if (board[y][x] !== 0) return;
 
-    let number = 1;
-    while (number < 8) {
-      number += 1;
-      if (board[y + number] !== undefined && board[y + number][x] === 3 - turnColor) {
-        continue;
-      } //自分の色の石の下の石が異なる色=>次の条件式に飛ぶ
+    for (let number = 2; number < 8; number++) {
+      if (board[y + 1][x] === turnColor) return;
       //相手の石の列の先に自分の石があれば裏返す
       if (board[y + number] !== undefined && board[y + number][x] === turnColor) {
-        //自分と同じ色の石にあたる=>その座標以下のy=y+iからyまでを裏返し続ける
+        //[y+number]が盤内かつ、自分の色であった場合
         for (let i = 1; i < number; i++) newBoard[y + i][x] = turnColor;
       }
-      newBoard[y][x] = turnColor;
-      setBoard(newBoard);
-      setTurnColor(3 - turnColor);
-
-      {
-        break;
-      }
+      //[y+number]と[y]の間にある石を自色に変える
     }
+    newBoard[y][x] = turnColor;
+    setBoard(newBoard);
+    setTurnColor(3 - turnColor);
   };
 
   return (
