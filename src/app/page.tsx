@@ -5,13 +5,13 @@ import styles from './page.module.css';
 
 export default function Home() {
   const [board, setBoard] = useState([
-    [0, 2, 1, 1, 0, 0, 0, 0],
-    [0, 2, 2, 0, 0, 0, 2, 0],
-    [0, 2, 2, 0, 0, 2, 1, 0],
-    [0, 0, 0, 1, 1, 1, 2, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 1, 2, 0, 0, 0],
     [0, 0, 0, 2, 1, 0, 0, 0],
-    [0, 1, 2, 0, 0, 0, 0, 0],
-    [0, 2, 1, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0],
     //1=>黒,2=>白
   ]);
@@ -22,25 +22,20 @@ export default function Home() {
 
     //↓↓↓
 
-    //(0,0)に置いたとき
-    if (board[y - 1] < 0 && board[x - 1] < 0) {
-      if (
-        board[y][x + 1] !== undefined &&
-        board[y][x + 1] === 3 - turnColor &&
-        board[y][x + 2] === turnColor
-      ) {
-        newBoard[y][x] = turnColor;
-        newBoard[y][x + 1] = turnColor;
-        setTurnColor(3 - turnColor);
-      }
-    }
-
     /*上 */
     //二個上が自分と同じ色
 
     if (
+      y - 1 >= 0 &&
+      x >= 0 &&
+      y - 1 < board.length &&
+      x < board[0].length &&
       board[y - 1] !== undefined &&
       board[y - 1][x] === 3 - turnColor &&
+      y - 2 >= 0 &&
+      x >= 0 &&
+      y - 2 < board.length &&
+      x < board[0].length &&
       board[y - 2][x] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -50,9 +45,21 @@ export default function Home() {
 
     //三個上が自分と同じ色
     if (
+      y - 1 >= 0 &&
+      x >= 0 &&
+      y - 1 < board.length &&
+      x < board[0].length &&
       board[y - 1] !== undefined &&
       board[y - 1][x] === 3 - turnColor &&
+      y - 2 >= 0 &&
+      x >= 0 &&
+      y - 2 < board.length &&
+      x < board[0].length &&
       board[y - 2][x] === 3 - turnColor &&
+      y - 3 >= 0 &&
+      x >= 0 &&
+      y - 3 < board.length &&
+      x < board[0].length &&
       board[y - 3][x] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -62,10 +69,26 @@ export default function Home() {
     }
     //四個上が自分と同じ色
     if (
+      y - 1 >= 0 &&
+      x >= 0 &&
+      y - 1 < board.length &&
+      x < board[0].length &&
       board[y - 1] !== undefined &&
       board[y - 1][x] === 3 - turnColor &&
+      y - 2 >= 0 &&
+      x >= 0 &&
+      y - 2 < board.length &&
+      x < board[0].length &&
       board[y - 2][x] === 3 - turnColor &&
+      y - 3 >= 0 &&
+      x >= 0 &&
+      y - 3 < board.length &&
+      x < board[0].length &&
       board[y - 3][x] === 3 - turnColor &&
+      y - 4 >= 0 &&
+      x >= 0 &&
+      y - 4 < board.length &&
+      x < board[0].length &&
       board[y - 4][x] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -77,11 +100,31 @@ export default function Home() {
 
     //五個上が自分と同じ色
     if (
+      y - 1 >= 0 &&
+      x >= 0 &&
+      y - 1 < board.length &&
+      x < board[0].length &&
       board[y - 1] !== undefined &&
       board[y - 1][x] === 3 - turnColor &&
+      y - 2 >= 0 &&
+      x >= 0 &&
+      y - 2 < board.length &&
+      x < board[0].length &&
       board[y - 2][x] === 3 - turnColor &&
+      y - 3 >= 0 &&
+      x >= 0 &&
+      y - 3 < board.length &&
+      x < board[0].length &&
       board[y - 3][x] === 3 - turnColor &&
+      y - 4 >= 0 &&
+      x >= 0 &&
+      -4 < board.length &&
+      x < board[0].length &&
       board[y - 4][x] === 3 - turnColor &&
+      y - 5 >= 0 &&
+      x >= 0 &&
+      -5 < board.length &&
+      x < board[0].length &&
       board[y - 5][x] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -93,12 +136,36 @@ export default function Home() {
     }
     //六個上が自分と同じ色
     if (
+      y - 1 >= 0 &&
+      x >= 0 &&
+      y - 1 < board.length &&
+      x < board[0].length &&
       board[y - 1] !== undefined &&
       board[y - 1][x] === 3 - turnColor &&
+      y - 2 >= 0 &&
+      x >= 0 &&
+      y - 2 < board.length &&
+      x < board[0].length &&
       board[y - 2][x] === 3 - turnColor &&
+      y - 3 >= 0 &&
+      x >= 0 &&
+      y - 3 < board.length &&
+      x < board[0].length &&
       board[y - 3][x] === 3 - turnColor &&
+      y - 4 >= 0 &&
+      x >= 0 &&
+      y - 4 < board.length &&
+      x < board[0].length &&
       board[y - 4][x] === 3 - turnColor &&
+      y - 5 >= 0 &&
+      x >= 0 &&
+      y - 5 < board.length &&
+      x < board[0].length &&
       board[y - 5][x] === 3 - turnColor &&
+      y - 6 >= 0 &&
+      x >= 0 &&
+      y - 6 < board.length &&
+      x < board[0].length &&
       board[y - 6][x] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -111,13 +178,41 @@ export default function Home() {
     }
     //七個上が自分と同じ色
     if (
+      y - 1 >= 0 &&
+      x >= 0 &&
+      y - 1 < board.length &&
+      x < board[0].length &&
       board[y - 1] !== undefined &&
       board[y - 1][x] === 3 - turnColor &&
+      y - 2 >= 0 &&
+      x >= 0 &&
+      y - 2 < board.length &&
+      x < board[0].length &&
       board[y - 2][x] === 3 - turnColor &&
+      y - 3 >= 0 &&
+      x >= 0 &&
+      y - 3 < board.length &&
+      x < board[0].length &&
       board[y - 3][x] === 3 - turnColor &&
+      y - 4 >= 0 &&
+      x >= 0 &&
+      y - 4 < board.length &&
+      x < board[0].length &&
       board[y - 4][x] === 3 - turnColor &&
+      y - 5 >= 0 &&
+      x >= 0 &&
+      y - 5 < board.length &&
+      x < board[0].length &&
       board[y - 5][x] === 3 - turnColor &&
+      y - 6 >= 0 &&
+      x >= 0 &&
+      y - 6 < board.length &&
+      x < board[0].length &&
       board[y - 6][x] === 3 - turnColor &&
+      y - 7 >= 0 &&
+      x >= 0 &&
+      y - 7 < board.length &&
+      x < board[0].length &&
       board[y - 7][x] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -133,8 +228,16 @@ export default function Home() {
     /*下 */
     //二個下が自分と同じ色
     if (
+      y + 1 >= 0 &&
+      x >= 0 &&
+      y + 1 < board.length &&
+      x < board[0].length &&
       board[y + 1] !== undefined &&
       board[y + 1][x] === 3 - turnColor &&
+      y + 2 >= 0 &&
+      x >= 0 &&
+      y + 2 < board.length &&
+      x < board[0].length &&
       board[y + 2][x] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -144,9 +247,21 @@ export default function Home() {
 
     //三個下が自分と同じ色
     if (
+      y + 1 >= 0 &&
+      x >= 0 &&
+      y + 1 < board.length &&
+      x < board[0].length &&
       board[y + 1] !== undefined &&
       board[y + 1][x] === 3 - turnColor &&
+      y + 2 >= 0 &&
+      x >= 0 &&
+      y + 2 < board.length &&
+      x < board[0].length &&
       board[y + 2][x] === 3 - turnColor &&
+      y + 3 >= 0 &&
+      x >= 0 &&
+      y + 3 < board.length &&
+      x < board[0].length &&
       board[y + 3][x] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -156,10 +271,26 @@ export default function Home() {
     }
     //四個下が自分と同じ色
     if (
+      y + 1 >= 0 &&
+      x >= 0 &&
+      y + 1 < board.length &&
+      x < board[0].length &&
       board[y + 1] !== undefined &&
       board[y + 1][x] === 3 - turnColor &&
+      y + 2 >= 0 &&
+      x >= 0 &&
+      y + 2 < board.length &&
+      x < board[0].length &&
       board[y + 2][x] === 3 - turnColor &&
+      y + 3 >= 0 &&
+      x >= 0 &&
+      y + 3 < board.length &&
+      x < board[0].length &&
       board[y + 3][x] === 3 - turnColor &&
+      y + 4 >= 0 &&
+      x >= 0 &&
+      y + 4 < board.length &&
+      x < board[0].length &&
       board[y + 4][x] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -171,11 +302,31 @@ export default function Home() {
 
     //五個下が自分と同じ色
     if (
+      y + 1 >= 0 &&
+      x >= 0 &&
+      y + 1 < board.length &&
+      x < board[0].length &&
       board[y + 1] !== undefined &&
       board[y + 1][x] === 3 - turnColor &&
+      y + 2 >= 0 &&
+      x >= 0 &&
+      y + 2 < board.length &&
+      x < board[0].length &&
       board[y + 2][x] === 3 - turnColor &&
+      y + 3 >= 0 &&
+      x >= 0 &&
+      y + 3 < board.length &&
+      x < board[0].length &&
       board[y + 3][x] === 3 - turnColor &&
+      y + 4 >= 0 &&
+      x >= 0 &&
+      y + 4 < board.length &&
+      x < board[0].length &&
       board[y + 4][x] === 3 - turnColor &&
+      y + 5 >= 0 &&
+      x >= 0 &&
+      y + 5 < board.length &&
+      x < board[0].length &&
       board[y + 5][x] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -187,12 +338,36 @@ export default function Home() {
     }
     //六個下が自分と同じ色
     if (
+      y + 1 >= 0 &&
+      x >= 0 &&
+      y + 1 < board.length &&
+      x < board[0].length &&
       board[y + 1] !== undefined &&
       board[y + 1][x] === 3 - turnColor &&
+      y + 2 >= 0 &&
+      x >= 0 &&
+      y + 2 < board.length &&
+      x < board[0].length &&
       board[y + 2][x] === 3 - turnColor &&
+      y + 3 >= 0 &&
+      x >= 0 &&
+      y + 3 < board.length &&
+      x < board[0].length &&
       board[y + 3][x] === 3 - turnColor &&
+      y + 4 >= 0 &&
+      x >= 0 &&
+      y + 4 < board.length &&
+      x < board[0].length &&
       board[y + 4][x] === 3 - turnColor &&
+      y + 5 >= 0 &&
+      x >= 0 &&
+      y + 5 < board.length &&
+      x < board[0].length &&
       board[y + 5][x] === 3 - turnColor &&
+      y + 6 >= 0 &&
+      x >= 0 &&
+      y + 6 < board.length &&
+      x < board[0].length &&
       board[y + 6][x] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -205,13 +380,41 @@ export default function Home() {
     }
     //七個下が自分と同じ色
     if (
+      y + 1 >= 0 &&
+      x >= 0 &&
+      y + 1 < board.length &&
+      x < board[0].length &&
       board[y + 1] !== undefined &&
       board[y + 1][x] === 3 - turnColor &&
+      y + 2 >= 0 &&
+      x >= 0 &&
+      y + 2 < board.length &&
+      x < board[0].length &&
       board[y + 2][x] === 3 - turnColor &&
+      y + 3 >= 0 &&
+      x >= 0 &&
+      y + 3 < board.length &&
+      x < board[0].length &&
       board[y + 3][x] === 3 - turnColor &&
+      y + 4 >= 0 &&
+      x >= 0 &&
+      y + 4 < board.length &&
+      x < board[0].length &&
       board[y + 4][x] === 3 - turnColor &&
+      y + 5 >= 0 &&
+      x >= 0 &&
+      y + 5 < board.length &&
+      x < board[0].length &&
       board[y + 5][x] === 3 - turnColor &&
+      y + 6 >= 0 &&
+      x >= 0 &&
+      y + 6 < board.length &&
+      x < board[0].length &&
       board[y + 6][x] === 3 - turnColor &&
+      y + 7 >= 0 &&
+      x >= 0 &&
+      y + 7 < board.length &&
+      x < board[0].length &&
       board[y + 7][x] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -227,8 +430,16 @@ export default function Home() {
     /*右*/
     //二個右が自分と同じ色
     if (
+      y >= 0 &&
+      x + 1 >= 0 &&
+      y < board.length &&
+      x + 1 < board[0].length &&
       board[x + 1] !== undefined &&
       board[y][x + 1] === 3 - turnColor &&
+      y >= 0 &&
+      x + 2 >= 0 &&
+      y < board.length &&
+      x + 2 < board[0].length &&
       board[y][x + 2] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -238,9 +449,21 @@ export default function Home() {
 
     //三個右が自分と同じ色
     if (
+      y >= 0 &&
+      x + 1 >= 0 &&
+      y < board.length &&
+      x + 1 < board[0].length &&
       board[x + 1] !== undefined &&
       board[y][x + 1] === 3 - turnColor &&
+      y >= 0 &&
+      x + 2 >= 0 &&
+      y < board.length &&
+      x + 2 < board[0].length &&
       board[y][x + 2] === 3 - turnColor &&
+      y >= 0 &&
+      x + 3 >= 0 &&
+      y < board.length &&
+      x + 3 < board[0].length &&
       board[y][x + 3] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -250,10 +473,26 @@ export default function Home() {
     }
     //四個右が自分と同じ色
     if (
+      y >= 0 &&
+      x + 1 >= 0 &&
+      y < board.length &&
+      x + 1 < board[0].length &&
       board[x + 1] !== undefined &&
       board[y][x + 1] === 3 - turnColor &&
+      y >= 0 &&
+      x + 2 >= 0 &&
+      y < board.length &&
+      x + 2 < board[0].length &&
       board[y][x + 2] === 3 - turnColor &&
+      y >= 0 &&
+      x + 3 >= 0 &&
+      y < board.length &&
+      x + 3 < board[0].length &&
       board[y][x + 3] === 3 - turnColor &&
+      y >= 0 &&
+      x + 4 >= 0 &&
+      y < board.length &&
+      x + 4 < board[0].length &&
       board[y][x + 4] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -265,11 +504,31 @@ export default function Home() {
 
     //五個右が自分と同じ色
     if (
+      y >= 0 &&
+      x + 1 >= 0 &&
+      y < board.length &&
+      x + 1 < board[0].length &&
       board[x + 1] !== undefined &&
       board[y][x + 1] === 3 - turnColor &&
+      y >= 0 &&
+      x + 2 >= 0 &&
+      y < board.length &&
+      x + 2 < board[0].length &&
       board[y][x + 2] === 3 - turnColor &&
+      y >= 0 &&
+      x + 3 >= 0 &&
+      y < board.length &&
+      x + 3 < board[0].length &&
       board[y][x + 3] === 3 - turnColor &&
+      y >= 0 &&
+      x + 4 >= 0 &&
+      y < board.length &&
+      x + 4 < board[0].length &&
       board[y][x + 4] === 3 - turnColor &&
+      y >= 0 &&
+      x + 5 >= 0 &&
+      y < board.length &&
+      x + 5 < board[0].length &&
       board[y][x + 5] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -281,12 +540,36 @@ export default function Home() {
     }
     //六個右が自分と同じ色
     if (
+      y >= 0 &&
+      x + 1 >= 0 &&
+      y < board.length &&
+      x + 1 < board[0].length &&
       board[x + 1] !== undefined &&
       board[y][x + 1] === 3 - turnColor &&
+      y >= 0 &&
+      x + 2 >= 0 &&
+      y < board.length &&
+      x + 2 < board[0].length &&
       board[y][x + 2] === 3 - turnColor &&
+      y >= 0 &&
+      x + 3 >= 0 &&
+      y < board.length &&
+      x + 3 < board[0].length &&
       board[y][x + 3] === 3 - turnColor &&
+      y >= 0 &&
+      x + 4 >= 0 &&
+      y < board.length &&
+      x + 4 < board[0].length &&
       board[y][x + 4] === 3 - turnColor &&
+      y >= 0 &&
+      x + 5 >= 0 &&
+      y < board.length &&
+      x + 5 < board[0].length &&
       board[y][x + 5] === 3 - turnColor &&
+      y >= 0 &&
+      x + 6 >= 0 &&
+      y < board.length &&
+      x + 6 < board[0].length &&
       board[y][x + 6] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -300,13 +583,41 @@ export default function Home() {
     }
     //七個右が自分と同じ色
     if (
+      y >= 0 &&
+      x + 1 >= 0 &&
+      y < board.length &&
+      x + 1 < board[0].length &&
       board[x + 1] !== undefined &&
       board[y][x + 1] === 3 - turnColor &&
+      y >= 0 &&
+      x + 2 >= 0 &&
+      y < board.length &&
+      x + 2 < board[0].length &&
       board[y][x + 2] === 3 - turnColor &&
+      y >= 0 &&
+      x + 3 >= 0 &&
+      y < board.length &&
+      x + 3 < board[0].length &&
       board[y][x + 3] === 3 - turnColor &&
+      y >= 0 &&
+      x + 4 >= 0 &&
+      y < board.length &&
+      x + 4 < board[0].length &&
       board[y][x + 4] === 3 - turnColor &&
+      y >= 0 &&
+      x + 5 >= 0 &&
+      y < board.length &&
+      x + 5 < board[0].length &&
       board[y][x + 5] === 3 - turnColor &&
+      y >= 0 &&
+      x + 6 >= 0 &&
+      y < board.length &&
+      x + 6 < board[0].length &&
       board[y][x + 6] === 3 - turnColor &&
+      y >= 0 &&
+      x + 7 >= 0 &&
+      y < board.length &&
+      x + 7 < board[0].length &&
       board[y][x + 7] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -322,8 +633,16 @@ export default function Home() {
     /*左*/
     //二個左が自分と同じ色
     if (
+      y >= 0 &&
+      x - 1 >= 0 &&
+      y < board.length &&
+      x - 1 < board[0].length &&
       board[x - 1] !== undefined &&
       board[y][x - 1] === 3 - turnColor &&
+      y >= 0 &&
+      x - 2 >= 0 &&
+      y < board.length &&
+      x - 2 < board[0].length &&
       board[y][x - 2] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -333,9 +652,21 @@ export default function Home() {
 
     //三個左が自分と同じ色
     if (
+      y >= 0 &&
+      x - 1 >= 0 &&
+      y < board.length &&
+      x - 1 < board[0].length &&
       board[x - 1] !== undefined &&
       board[y][x - 1] === 3 - turnColor &&
+      y >= 0 &&
+      x - 2 >= 0 &&
+      y < board.length &&
+      x - 2 < board[0].length &&
       board[y][x - 2] === 3 - turnColor &&
+      y >= 0 &&
+      x - 3 >= 0 &&
+      y < board.length &&
+      x - 3 < board[0].length &&
       board[y][x - 3] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -345,10 +676,26 @@ export default function Home() {
     }
     //四個左が自分と同じ色
     if (
+      y >= 0 &&
+      x - 1 >= 0 &&
+      y < board.length &&
+      x - 1 < board[0].length &&
       board[x - 1] !== undefined &&
       board[y][x - 1] === 3 - turnColor &&
+      y >= 0 &&
+      x - 2 >= 0 &&
+      y < board.length &&
+      x - 2 < board[0].length &&
       board[y][x - 2] === 3 - turnColor &&
+      y >= 0 &&
+      x - 3 >= 0 &&
+      y < board.length &&
+      x - 3 < board[0].length &&
       board[y][x - 3] === 3 - turnColor &&
+      y >= 0 &&
+      x - 4 >= 0 &&
+      y < board.length &&
+      x - 4 < board[0].length &&
       board[y][x - 4] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -360,11 +707,31 @@ export default function Home() {
 
     //五個左が自分と同じ色
     if (
+      y >= 0 &&
+      x - 1 >= 0 &&
+      y < board.length &&
+      x - 1 < board[0].length &&
       board[x - 1] !== undefined &&
       board[y][x - 1] === 3 - turnColor &&
+      y >= 0 &&
+      x - 2 >= 0 &&
+      y < board.length &&
+      x - 2 < board[0].length &&
       board[y][x - 2] === 3 - turnColor &&
+      y >= 0 &&
+      x - 3 >= 0 &&
+      y < board.length &&
+      x - 3 < board[0].length &&
       board[y][x - 3] === 3 - turnColor &&
+      y >= 0 &&
+      x - 4 >= 0 &&
+      y < board.length &&
+      x - 4 < board[0].length &&
       board[y][x - 4] === 3 - turnColor &&
+      y >= 0 &&
+      x - 5 >= 0 &&
+      y < board.length &&
+      x - 5 < board[0].length &&
       board[y][x - 5] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -376,12 +743,36 @@ export default function Home() {
     }
     //六個左が自分と同じ色
     if (
+      y >= 0 &&
+      x - 1 >= 0 &&
+      y < board.length &&
+      x - 1 < board[0].length &&
       board[x - 1] !== undefined &&
       board[y][x - 1] === 3 - turnColor &&
+      y >= 0 &&
+      x - 2 >= 0 &&
+      y < board.length &&
+      x - 2 < board[0].length &&
       board[y][x - 2] === 3 - turnColor &&
+      y >= 0 &&
+      x - 3 >= 0 &&
+      y < board.length &&
+      x - 3 < board[0].length &&
       board[y][x - 3] === 3 - turnColor &&
+      y >= 0 &&
+      x - 4 >= 0 &&
+      y < board.length &&
+      x - 4 < board[0].length &&
       board[y][x - 4] === 3 - turnColor &&
+      y >= 0 &&
+      x - 5 >= 0 &&
+      y < board.length &&
+      x - 5 < board[0].length &&
       board[y][x - 5] === 3 - turnColor &&
+      y >= 0 &&
+      x - 6 >= 0 &&
+      y < board.length &&
+      x - 6 < board[0].length &&
       board[y][x - 6] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -394,13 +785,41 @@ export default function Home() {
     }
     //七個左が自分と同じ色
     if (
+      y >= 0 &&
+      x - 1 >= 0 &&
+      y < board.length &&
+      x - 1 < board[0].length &&
       board[x - 1] !== undefined &&
       board[y][x - 1] === 3 - turnColor &&
+      y >= 0 &&
+      x - 2 >= 0 &&
+      y < board.length &&
+      x - 2 < board[0].length &&
       board[y][x - 2] === 3 - turnColor &&
+      y >= 0 &&
+      x - 3 >= 0 &&
+      y < board.length &&
+      x - 3 < board[0].length &&
       board[y][x - 3] === 3 - turnColor &&
+      y >= 0 &&
+      x - 4 >= 0 &&
+      y < board.length &&
+      x - 4 < board[0].length &&
       board[y][x - 4] === 3 - turnColor &&
+      y >= 0 &&
+      x - 5 >= 0 &&
+      y < board.length &&
+      x - 5 < board[0].length &&
       board[y][x - 5] === 3 - turnColor &&
+      y >= 0 &&
+      x - 6 >= 0 &&
+      y < board.length &&
+      x - 6 < board[0].length &&
       board[y][x - 6] === 3 - turnColor &&
+      y >= 0 &&
+      x - 7 >= 0 &&
+      y < board.length &&
+      x - 7 < board[0].length &&
       board[y][x - 7] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -416,8 +835,16 @@ export default function Home() {
     /*右斜め上*/
     //右斜め上二個が自分と同じ色
     if (
+      y - 1 >= 0 &&
+      x + 1 >= 0 &&
+      y - 1 < board.length &&
+      x + 1 < board[0].length &&
       board[y - 1][x + 1] !== undefined &&
       board[y - 1][x + 1] === 3 - turnColor &&
+      y - 1 >= 0 &&
+      x + 2 >= 0 &&
+      y - 2 < board.length &&
+      x + 2 < board[0].length &&
       board[y - 2][x + 2] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -427,9 +854,21 @@ export default function Home() {
 
     //右斜め上三個が自分と同じ色
     if (
+      y - 1 >= 0 &&
+      x + 1 >= 0 &&
+      y - 1 < board.length &&
+      x + 1 < board[0].length &&
       board[y - 1][x + 1] !== undefined &&
       board[y - 1][x + 1] === 3 - turnColor &&
+      y - 2 >= 0 &&
+      x + 2 >= 0 &&
+      y - 2 < board.length &&
+      x + 2 < board[0].length &&
       board[y - 2][x + 2] === 3 - turnColor &&
+      y - 3 >= 0 &&
+      x + 3 >= 0 &&
+      y - 3 < board.length &&
+      x + 3 < board[0].length &&
       board[y - 3][x + 3] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -439,10 +878,26 @@ export default function Home() {
     }
     //右斜め上四個が自分と同じ色
     if (
+      y - 1 >= 0 &&
+      x + 1 >= 0 &&
+      y - 1 < board.length &&
+      x + 1 < board[0].length &&
       board[y - 1][x + 1] !== undefined &&
       board[y - 1][x + 1] === 3 - turnColor &&
+      y - 2 >= 0 &&
+      x + 2 >= 0 &&
+      y - 2 < board.length &&
+      x + 2 < board[0].length &&
       board[y - 2][x + 2] === 3 - turnColor &&
+      y - 3 >= 0 &&
+      x + 3 >= 0 &&
+      y - 3 < board.length &&
+      x + 3 < board[0].length &&
       board[y - 3][x + 3] === 3 - turnColor &&
+      y - 4 >= 0 &&
+      x + 4 >= 0 &&
+      y - 4 < board.length &&
+      x + 4 < board[0].length &&
       board[y - 4][x + 4] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -454,11 +909,31 @@ export default function Home() {
 
     //右斜め上五個自分と同じ色
     if (
+      y - 1 >= 0 &&
+      x + 1 >= 0 &&
+      y - 1 < board.length &&
+      x + 1 < board[0].length &&
       board[y - 1][x + 1] !== undefined &&
       board[y - 1][x + 1] === 3 - turnColor &&
+      y - 2 >= 0 &&
+      x + 2 >= 0 &&
+      y - 2 < board.length &&
+      x + 2 < board[0].length &&
       board[y - 2][x + 2] === 3 - turnColor &&
+      y - 3 >= 0 &&
+      x + 3 >= 0 &&
+      y - 3 < board.length &&
+      x + 3 < board[0].length &&
       board[y - 3][x + 3] === 3 - turnColor &&
+      y - 4 >= 0 &&
+      x + 4 >= 0 &&
+      y - 4 < board.length &&
+      x + 4 < board[0].length &&
       board[y - 4][x + 4] === 3 - turnColor &&
+      y - 5 >= 0 &&
+      x + 5 >= 0 &&
+      y - 5 < board.length &&
+      x + 5 < board[0].length &&
       board[y - 5][x + 5] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -470,12 +945,36 @@ export default function Home() {
     }
     //右斜め上六個が自分と同じ色
     if (
+      y - 1 >= 0 &&
+      x + 1 >= 0 &&
+      y - 1 < board.length &&
+      x + 1 < board[0].length &&
       board[y - 1][x + 1] !== undefined &&
       board[y - 1][x + 1] === 3 - turnColor &&
+      y - 2 >= 0 &&
+      x + 2 >= 0 &&
+      y - 2 < board.length &&
+      x + 2 < board[0].length &&
       board[y - 2][x + 2] === 3 - turnColor &&
+      y - 3 >= 0 &&
+      x + 3 >= 0 &&
+      y - 3 < board.length &&
+      x + 3 < board[0].length &&
       board[y - 3][x + 3] === 3 - turnColor &&
+      y - 4 >= 0 &&
+      x + 4 >= 0 &&
+      y - 4 < board.length &&
+      x + 4 < board[0].length &&
       board[y - 4][x + 4] === 3 - turnColor &&
+      y - 5 >= 0 &&
+      x + 5 >= 0 &&
+      y - 5 < board.length &&
+      x + 5 < board[0].length &&
       board[y - 5][x + 5] === 3 - turnColor &&
+      y - 6 >= 0 &&
+      x + 6 >= 0 &&
+      y - 6 < board.length &&
+      x + 6 < board[0].length &&
       board[y - 6][x + 6] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -488,13 +987,40 @@ export default function Home() {
     }
     //右斜め上七個が自分と同じ色
     if (
+      y - 1 >= 0 &&
+      x + 1 >= 0 &&
+      y - 1 < board.length &&
       board[y - 1][x + 1] !== undefined &&
       board[y - 1][x + 1] === 3 - turnColor &&
+      y - 2 >= 0 &&
+      x + 2 >= 0 &&
+      y - 2 < board.length &&
+      x + 2 < board[0].length &&
       board[y - 2][x + 2] === 3 - turnColor &&
+      y - 3 >= 0 &&
+      x + 3 >= 0 &&
+      y - 3 < board.length &&
+      x + 3 < board[0].length &&
       board[y - 3][x + 3] === 3 - turnColor &&
+      y - 4 >= 0 &&
+      x + 4 >= 0 &&
+      y - 4 < board.length &&
+      x + 4 < board[0].length &&
       board[y - 4][x + 4] === 3 - turnColor &&
+      y - 5 >= 0 &&
+      x + 5 >= 0 &&
+      y - 5 < board.length &&
+      x + 5 < board[0].length &&
       board[y - 5][x + 5] === 3 - turnColor &&
+      y - 6 >= 0 &&
+      x + 6 >= 0 &&
+      y - 6 < board.length &&
+      x + 6 < board[0].length &&
       board[y - 6][x + 6] === 3 - turnColor &&
+      y - 7 >= 0 &&
+      x + 7 >= 0 &&
+      y - 7 < board.length &&
+      x + 7 < board[0].length &&
       board[y - 7][x + 7] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -510,8 +1036,16 @@ export default function Home() {
     /*右斜め下*/
     //右斜め下二個が自分と同じ色
     if (
+      y + 1 >= 0 &&
+      x + 1 >= 0 &&
+      y + 1 < board.length &&
+      x + 1 < board[0].length &&
       board[y + 1][x + 1] !== undefined &&
       board[y + 1][x + 1] === 3 - turnColor &&
+      y + 2 >= 0 &&
+      x + 2 >= 0 &&
+      y + 2 < board.length &&
+      x + 2 < board[0].length &&
       board[y + 2][x + 2] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -521,9 +1055,21 @@ export default function Home() {
 
     //右斜め下三個が自分と同じ色
     if (
+      y + 1 >= 0 &&
+      x + 1 >= 0 &&
+      y + 1 < board.length &&
+      x + 1 < board[0].length &&
       board[y + 1][x + 1] !== undefined &&
       board[y + 1][x + 1] === 3 - turnColor &&
+      y + 2 >= 0 &&
+      x + 2 >= 0 &&
+      y + 2 < board.length &&
+      x + 2 < board[0].length &&
       board[y + 2][x + 2] === 3 - turnColor &&
+      y + 3 >= 0 &&
+      x + 3 >= 0 &&
+      y + 3 < board.length &&
+      x + 3 < board[0].length &&
       board[y + 3][x + 3] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -533,10 +1079,26 @@ export default function Home() {
     }
     //右斜め下四個が自分と同じ色
     if (
+      y + 1 >= 0 &&
+      x + 1 >= 0 &&
+      y + 1 < board.length &&
+      x + 1 < board[0].length &&
       board[y + 1][x + 1] !== undefined &&
       board[y + 1][x + 1] === 3 - turnColor &&
+      y + 2 >= 0 &&
+      x + 2 >= 0 &&
+      y + 2 < board.length &&
+      x + 2 < board[0].length &&
       board[y + 2][x + 2] === 3 - turnColor &&
+      y + 3 >= 0 &&
+      x + 3 >= 0 &&
+      y + 3 < board.length &&
+      x + 3 < board[0].length &&
       board[y + 3][x + 3] === 3 - turnColor &&
+      y + 4 >= 0 &&
+      x + 4 >= 0 &&
+      y + 4 < board.length &&
+      x + 4 < board[0].length &&
       board[y + 4][x + 4] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -548,11 +1110,31 @@ export default function Home() {
 
     //右斜め下五個自分と同じ色
     if (
+      y + 1 >= 0 &&
+      x + 1 >= 0 &&
+      y + 1 < board.length &&
+      x + 1 < board[0].length &&
       board[y + 1][x + 1] !== undefined &&
       board[y + 1][x + 1] === 3 - turnColor &&
+      y + 2 >= 0 &&
+      x + 2 >= 0 &&
+      y + 2 < board.length &&
+      x + 2 < board[0].length &&
       board[y + 2][x + 2] === 3 - turnColor &&
+      y + 3 >= 0 &&
+      x + 3 >= 0 &&
+      y + 3 < board.length &&
+      x + 3 < board[0].length &&
       board[y + 3][x + 3] === 3 - turnColor &&
+      y + 4 >= 0 &&
+      x + 4 >= 0 &&
+      y + 4 < board.length &&
+      x + 4 < board[0].length &&
       board[y + 4][x + 4] === 3 - turnColor &&
+      y + 5 >= 0 &&
+      x + 5 >= 0 &&
+      y + 5 < board.length &&
+      x + 5 < board[0].length &&
       board[y + 5][x + 5] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -564,12 +1146,36 @@ export default function Home() {
     }
     //右斜め下六個が自分と同じ色
     if (
+      y + 1 >= 0 &&
+      x + 1 >= 0 &&
+      y + 1 < board.length &&
+      x + 1 < board[0].length &&
       board[y + 1][x + 1] !== undefined &&
       board[y + 1][x + 1] === 3 - turnColor &&
+      y + 2 >= 0 &&
+      x + 2 >= 0 &&
+      y + 2 < board.length &&
+      x + 2 < board[0].length &&
       board[y + 2][x + 2] === 3 - turnColor &&
+      y + 3 >= 0 &&
+      x + 3 >= 0 &&
+      y + 3 < board.length &&
+      x + 3 < board[0].length &&
       board[y + 3][x + 3] === 3 - turnColor &&
+      y + 4 >= 0 &&
+      x + 4 >= 0 &&
+      y + 4 < board.length &&
+      x + 4 < board[0].length &&
       board[y + 4][x + 4] === 3 - turnColor &&
+      y + 5 >= 0 &&
+      x + 5 >= 0 &&
+      y + 5 < board.length &&
+      x + 5 < board[0].length &&
       board[y + 5][x + 5] === 3 - turnColor &&
+      y + 6 >= 0 &&
+      x + 6 >= 0 &&
+      y + 6 < board.length &&
+      x + 6 < board[0].length &&
       board[y + 6][x + 6] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -582,13 +1188,41 @@ export default function Home() {
     }
     //右斜め下七個が自分と同じ色
     if (
+      y + 1 >= 0 &&
+      x + 1 >= 0 &&
+      y + 1 < board.length &&
+      x + 1 < board[0].length &&
       board[y + 1][x + 1] !== undefined &&
       board[y + 1][x + 1] === 3 - turnColor &&
+      y + 2 >= 0 &&
+      x + 2 >= 0 &&
+      y + 2 < board.length &&
+      x + 2 < board[0].length &&
       board[y + 2][x + 2] === 3 - turnColor &&
+      y + 3 >= 0 &&
+      x + 3 >= 0 &&
+      y + 3 < board.length &&
+      x + 3 < board[0].length &&
       board[y + 3][x + 3] === 3 - turnColor &&
+      y + 4 >= 0 &&
+      x + 4 >= 0 &&
+      y + 4 < board.length &&
+      x + 4 < board[0].length &&
       board[y + 4][x + 4] === 3 - turnColor &&
+      y + 5 >= 0 &&
+      x + 5 >= 0 &&
+      y + 5 < board.length &&
+      x + 5 < board[0].length &&
       board[y + 5][x + 5] === 3 - turnColor &&
+      y + 6 >= 0 &&
+      x + 6 >= 0 &&
+      y + 6 < board.length &&
+      x + 6 < board[0].length &&
       board[y + 6][x + 6] === 3 - turnColor &&
+      y + 7 >= 0 &&
+      x + 7 >= 0 &&
+      y + 7 < board.length &&
+      x + 7 < board[0].length &&
       board[y + 7][x + 7] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -604,8 +1238,16 @@ export default function Home() {
     /*左斜め上*/
     //左斜め上二個が自分と同じ色
     if (
+      y - 1 >= 0 &&
+      x - 1 >= 0 &&
+      y - 1 < board.length &&
+      x - 1 < board[0].length &&
       board[y - 1][x - 1] !== undefined &&
       board[y - 1][x - 1] === 3 - turnColor &&
+      y - 2 >= 0 &&
+      x - 2 >= 0 &&
+      y - 2 < board.length &&
+      x - 2 < board[0].length &&
       board[y - 2][x - 2] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -615,9 +1257,21 @@ export default function Home() {
 
     //左斜め上三個が自分と同じ色
     if (
+      y - 1 >= 0 &&
+      x - 1 >= 0 &&
+      y - 1 < board.length &&
+      x - 1 < board[0].length &&
       board[y - 1][x - 1] !== undefined &&
       board[y - 1][x - 1] === 3 - turnColor &&
+      y - 2 >= 0 &&
+      x - 2 >= 0 &&
+      y - 2 < board.length &&
+      x - 2 < board[0].length &&
       board[y - 2][x - 2] === 3 - turnColor &&
+      y - 3 >= 0 &&
+      x - 3 >= 0 &&
+      y - 3 < board.length &&
+      x - 3 < board[0].length &&
       board[y - 3][x - 3] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -627,10 +1281,26 @@ export default function Home() {
     }
     //左斜め上四個が自分と同じ色
     if (
+      y - 1 >= 0 &&
+      x - 1 >= 0 &&
+      y - 1 < board.length &&
+      x - 1 < board[0].length &&
       board[y - 1][x - 1] !== undefined &&
       board[y - 1][x - 1] === 3 - turnColor &&
+      y - 2 >= 0 &&
+      x - 2 >= 0 &&
+      y - 2 < board.length &&
+      x - 2 < board[0].length &&
       board[y - 2][x - 2] === 3 - turnColor &&
+      y - 3 >= 0 &&
+      x - 3 >= 0 &&
+      y - 3 < board.length &&
+      x - 3 < board[0].length &&
       board[y - 3][x - 3] === 3 - turnColor &&
+      y - 4 >= 0 &&
+      x - 4 >= 0 &&
+      y - 4 < board.length &&
+      x - 4 < board[0].length &&
       board[y - 4][x - 4] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -642,11 +1312,31 @@ export default function Home() {
 
     //左斜め上五個自分と同じ色
     if (
+      y - 1 < board.length &&
+      y - 1 >= 0 &&
+      x - 1 >= 0 &&
+      x - 1 < board[0].length &&
       board[y - 1][x - 1] !== undefined &&
       board[y - 1][x - 1] === 3 - turnColor &&
+      y - 2 >= 0 &&
+      x - 2 >= 0 &&
+      y - 2 < board.length &&
+      x - 2 < board[0].length &&
       board[y - 2][x - 2] === 3 - turnColor &&
+      y - 3 >= 0 &&
+      x - 3 >= 0 &&
+      y - 3 < board.length &&
+      x - 3 < board[0].length &&
       board[y - 3][x - 3] === 3 - turnColor &&
+      y - 4 >= 0 &&
+      x - 4 >= 0 &&
+      y - 4 < board.length &&
+      x - 4 < board[0].length &&
       board[y - 4][x - 4] === 3 - turnColor &&
+      y - 5 >= 0 &&
+      x - 5 >= 0 &&
+      y - 5 < board.length &&
+      x - 5 < board[0].length &&
       board[y - 5][x - 5] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -658,12 +1348,36 @@ export default function Home() {
     }
     //左斜め上六個が自分と同じ色
     if (
+      y - 1 >= 0 &&
+      x - 1 >= 0 &&
+      y - 1 < board.length &&
+      x - 1 < board[0].length &&
       board[y - 1][x - 1] !== undefined &&
       board[y - 1][x - 1] === 3 - turnColor &&
+      y - 2 >= 0 &&
+      x - 2 >= 0 &&
+      y - 2 < board.length &&
+      x - 2 < board[0].length &&
       board[y - 2][x - 2] === 3 - turnColor &&
+      y - 3 >= 0 &&
+      x - 3 >= 0 &&
+      y - 3 < board.length &&
+      x - 3 < board[0].length &&
       board[y - 3][x - 3] === 3 - turnColor &&
+      y - 4 >= 0 &&
+      x - 4 >= 0 &&
+      y - 4 < board.length &&
+      x - 4 < board[0].length &&
       board[y - 4][x - 4] === 3 - turnColor &&
+      y - 5 >= 0 &&
+      x - 5 >= 0 &&
+      y - 5 < board.length &&
+      x - 5 < board[0].length &&
       board[y - 5][x - 5] === 3 - turnColor &&
+      y - 6 >= 0 &&
+      x - 6 >= 0 &&
+      y - 6 < board.length &&
+      x - 6 < board[0].length &&
       board[y - 6][x - 6] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -676,13 +1390,41 @@ export default function Home() {
     }
     //左斜め上七個が自分と同じ色
     if (
+      y - 1 >= 0 &&
+      x - 1 >= 0 &&
+      y - 1 < board.length &&
+      x - 1 < board[0].length &&
       board[y - 1][x - 1] !== undefined &&
       board[y - 1][x - 1] === 3 - turnColor &&
+      y - 2 >= 0 &&
+      x - 2 >= 0 &&
+      y - 2 < board.length &&
+      x - 2 < board[0].length &&
       board[y - 2][x - 2] === 3 - turnColor &&
+      y - 3 >= 0 &&
+      x - 3 >= 0 &&
+      y - 3 < board.length &&
+      x - 3 < board[0].length &&
       board[y - 3][x - 3] === 3 - turnColor &&
+      y - 4 >= 0 &&
+      x - 4 >= 0 &&
+      y - 4 < board.length &&
+      x - 4 < board[0].length &&
       board[y - 4][x - 4] === 3 - turnColor &&
+      y - 5 >= 0 &&
+      x - 5 >= 0 &&
+      y - 5 < board.length &&
+      x - 5 < board[0].length &&
       board[y - 5][x - 5] === 3 - turnColor &&
+      y - 6 >= 0 &&
+      x - 6 >= 0 &&
+      y - 6 < board.length &&
+      x - 6 < board[0].length &&
       board[y - 6][x - 6] === 3 - turnColor &&
+      y - 7 >= 0 &&
+      x - 7 >= 0 &&
+      -7 < board.length &&
+      x - 7 < board[0].length &&
       board[y - 7][x - 7] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -698,8 +1440,16 @@ export default function Home() {
     /*左斜め下*/
     //左斜め下二個が自分と同じ色
     if (
+      y + 1 >= 0 &&
+      x - 1 >= 0 &&
+      y + 1 < board.length &&
+      x - 1 < board[0].length &&
       board[y + 1][x - 1] !== undefined &&
       board[y + 1][x - 1] === 3 - turnColor &&
+      y + 2 >= 0 &&
+      x - 2 >= 0 &&
+      y + 2 < board.length &&
+      x - 2 < board[0].length &&
       board[y + 2][x - 2] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -709,13 +1459,19 @@ export default function Home() {
 
     //左斜め下三個が自分と同じ色
     if (
+      y + 1 >= 0 &&
+      x - 1 >= 0 &&
       y + 1 < board.length &&
       x - 1 >= 0 &&
-      y + 2 < board.length &&
-      x - 2 >= 0 &&
       board[y + 1][x - 1] !== undefined &&
       board[y + 1][x - 1] === 3 - turnColor &&
+      y + 2 >= 0 &&
+      x - 2 >= 0 &&
+      y + 2 < board.length &&
+      x - 2 >= 0 &&
       board[y + 2][x - 2] === 3 - turnColor &&
+      y + 3 >= 0 &&
+      x - 3 >= 0 &&
       y + 3 < board.length &&
       x - 3 >= 0 &&
       board[y + 3][x - 3] === turnColor
@@ -727,10 +1483,26 @@ export default function Home() {
     }
     //左斜め下四個が自分と同じ色
     if (
+      y + 1 >= 0 &&
+      x - 1 >= 0 &&
+      y + 1 < board.length &&
+      x - 1 < board[0].length &&
       board[y + 1][x - 1] !== undefined &&
       board[y + 1][x - 1] === 3 - turnColor &&
+      y + 2 >= 0 &&
+      x - 2 >= 0 &&
+      y + 2 < board.length &&
+      x - 2 < board[0].length &&
       board[y + 2][x - 2] === 3 - turnColor &&
+      y + 3 >= 0 &&
+      x - 3 >= 0 &&
+      y + 3 < board.length &&
+      x - 3 < board[0].length &&
       board[y + 3][x - 3] === 3 - turnColor &&
+      y + 4 >= 0 &&
+      x - 4 >= 0 &&
+      y + 4 < board.length &&
+      x - 4 < board[0].length &&
       board[y + 4][x - 4] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -742,11 +1514,31 @@ export default function Home() {
 
     //左斜め下五個自分と同じ色
     if (
+      y + 1 >= 0 &&
+      x - 1 >= 0 &&
+      y + 1 < board.length &&
+      x - 1 < board[0].length &&
       board[y + 1][x - 1] !== undefined &&
       board[y + 1][x - 1] === 3 - turnColor &&
+      y + 2 >= 0 &&
+      x - 2 >= 0 &&
+      y + 2 < board.length &&
+      x - 2 < board[0].length &&
       board[y + 2][x - 2] === 3 - turnColor &&
+      y + 3 >= 0 &&
+      x - 3 >= 0 &&
+      x + 3 < board.length &&
+      x - 3 < board[0].length &&
       board[y + 3][x - 3] === 3 - turnColor &&
+      y + 4 >= 0 &&
+      x - 4 >= 0 &&
+      y + 4 < board.length &&
+      x - 4 < board[0].length &&
       board[y + 4][x - 4] === 3 - turnColor &&
+      y + 5 >= 0 &&
+      x - 5 >= 0 &&
+      y + 5 < board.length &&
+      x - 5 < board[0].length &&
       board[y + 5][x - 5] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -758,12 +1550,36 @@ export default function Home() {
     }
     //左斜め下六個が自分と同じ色
     if (
+      y + 1 >= 0 &&
+      x - 1 >= 0 &&
+      y + 1 < board.length &&
+      x - 1 < board[0].length &&
       board[y + 1][x - 1] !== undefined &&
       board[y + 1][x - 1] === 3 - turnColor &&
+      y + 2 >= 0 &&
+      x - 2 >= 0 &&
+      y + 2 < board.length &&
+      x - 2 < board[0].length &&
       board[y + 2][x - 2] === 3 - turnColor &&
+      y + 3 >= 0 &&
+      x - 3 >= 0 &&
+      y + 3 < board.length &&
+      x - 3 < board[0].length &&
       board[y + 3][x - 3] === 3 - turnColor &&
+      y + 4 >= 0 &&
+      x - 4 >= 0 &&
+      y + 4 < board.length &&
+      x - 4 < board[0].length &&
       board[y + 4][x - 4] === 3 - turnColor &&
+      y + 5 >= 0 &&
+      x - 5 >= 0 &&
+      y + 5 < board.length &&
+      x - 5 < board[0].length &&
       board[y + 5][x - 5] === 3 - turnColor &&
+      y + 6 >= 0 &&
+      x - 6 >= 0 &&
+      y + 6 < board.length &&
+      x - 6 < board[0].length &&
       board[y + 6][x - 6] === turnColor
     ) {
       newBoard[y][x] = turnColor;
@@ -776,13 +1592,41 @@ export default function Home() {
     }
     //左斜め下七個が自分と同じ色
     if (
+      y + 1 >= 0 &&
+      x - 1 >= 0 &&
+      y + 1 < board.length &&
+      x - 1 < board[0].length &&
       board[y + 1][x - 1] !== undefined &&
       board[y + 1][x - 1] === 3 - turnColor &&
+      y + 2 >= 0 &&
+      x - 2 >= 0 &&
+      y + 2 < board.length &&
+      x - 2 < board[0].length &&
       board[y + 2][x - 2] === 3 - turnColor &&
+      y + 3 >= 0 &&
+      x - 3 >= 0 &&
+      y + 3 < board.length &&
+      x - 3 < board[0].length &&
       board[y + 3][x - 3] === 3 - turnColor &&
+      y + 4 >= 0 &&
+      x - 4 >= 0 &&
+      y + 4 < board.length &&
+      x - 4 < board[0].length &&
       board[y + 4][x - 4] === 3 - turnColor &&
+      y + 5 >= 0 &&
+      x - 5 >= 0 &&
+      y + 5 < board.length &&
+      x - 5 < board[0].length &&
       board[y + 5][x - 5] === 3 - turnColor &&
+      y + 6 >= 0 &&
+      x - 6 >= 0 &&
+      y + 6 < board.length &&
+      x - 6 < board[0].length &&
       board[y + 6][x - 6] === 3 - turnColor &&
+      y + 7 >= 0 &&
+      x - 7 >= 0 &&
+      y + 7 < board.length &&
+      x - 7 < board[0].length &&
       board[y + 7][x - 7] === turnColor
     ) {
       newBoard[y][x] = turnColor;
