@@ -5,7 +5,7 @@ import styles from './page.module.css';
 
 export default function Home() {
   const [board, setBoard] = useState([
-    [0, 2, 2, 1, 0, 0, 0, 0],
+    [0, 2, 1, 1, 0, 0, 0, 0],
     [0, 2, 2, 0, 0, 0, 2, 0],
     [0, 2, 2, 0, 0, 2, 1, 0],
     [0, 0, 0, 1, 1, 1, 2, 0],
@@ -22,8 +22,17 @@ export default function Home() {
 
     //↓↓↓
 
-    //もしひとつ上のマスがなかったら
-    if (board[y - 1] === undefined) {
+    //(0,0)に置いたとき
+    if (board[y - 1] < 0 && board[x - 1] < 0) {
+      if (
+        board[y][x + 1] !== undefined &&
+        board[y][x + 1] === 3 - turnColor &&
+        board[y][x + 2] === turnColor
+      ) {
+        newBoard[y][x] = turnColor;
+        newBoard[y][x + 1] = turnColor;
+        setTurnColor(3 - turnColor);
+      }
     }
 
     /*上 */
